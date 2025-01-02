@@ -1,7 +1,6 @@
 let lib = [];
 
 
-
 /**
  * Create a new instance of the Work class, added automatically to the library array.
  * @param {string} title e.g. 'Ave Maria'
@@ -156,6 +155,7 @@ const tableFormat = (array = lib,parent) => {
                             data.innerHTML = `${value['First']} ${value['Last']}`;
                         }
                     }
+                    data.setAttribute('class','searchable');
                     trow.appendChild(data);
                 }
                 else if (key == 'link') {
@@ -173,6 +173,7 @@ const tableFormat = (array = lib,parent) => {
                     let data = document.createElement('td');
                     data.innerHTML = value;
                     trow.appendChild(data);
+                    data.setAttribute('class','searchable');
                 }
             }
             table.appendChild(trow);
@@ -218,7 +219,6 @@ const search = (text) => {
             found? res.push(entry) : null;
         }
     })
-    //console.table(res);
     tableFormat(res,'display');
 }
 
@@ -232,10 +232,12 @@ document.addEventListener('DOMContentLoaded',() => {
     /**
      * Click Search.
      */
-    document.getElementById('display').addEventListener('mousedown',(event) => {
-        console.log(event.target.textContent);
-        search(event.target.textContent);
-    })
+    document.querySelectorAll('.searchable').forEach(item => {
+        item.addEventListener('mousedown',(event) => {
+            console.log(event.target.textContent);
+            search(event.target.textContent);
+        })
+    });
     document.getElementById('clear').addEventListener('mousedown',() => {
         searchBar.value = '';
         tableFormat(lib,'display');
