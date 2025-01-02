@@ -50,13 +50,24 @@ function Work(title,composer,arranger,voicing,usage,link) {
     this.composer = divider();
     this.arranger = {
         'Last': arranger? arranger.split(',')[0].trim() : null,
-        'First': arranger? arranger.split(',')[1].trim() : null,
+        'First': arranger? arranger.split(',')[1].trim() : 'N/A',
     }
     this.voicing = voicing;
     this.usage = usage;
     this.link = link;
     this.stringRep = `${this.title}|${composerConcat}|${this.arranger['First']} ${this.arranger['Last']}|${this.usage}|${this.voicing}`;
-    lib.push(this);
+    /**
+     * Returns true if this object shares a link with another.
+     * @returns boolean
+     */
+    let duplicate = () => {
+        let isDuplicate = false;
+        lib.forEach(entry => {
+            isDuplicate = entry.link === this.link? true : false;
+        })
+        return isDuplicate;
+    }
+    duplicate() == false? lib.push(this) : console.error('ITEM IS DUPLICATE!');
 }
 
 //Add works here.
@@ -78,7 +89,7 @@ new Work('Dona Nobis Pacem','Butler, Mark',undefined,'SSAATTBB','Peace/Comfort',
 new Work('Go Tell it on the Mountain','Traditional','Larson, Lloyd','SSATB','Epiphany','https://drive.google.com/file/d/1sR5ikcnr-GYYQWpLpdmrdm1iBiseYNEn/view?usp=drive_link');
 new Work('God So Loved the World','Stainer, John',undefined,'SATB','General','https://drive.google.com/file/d/1zMBY_2R7SJdU5QTwV7mCZUAXEiIAgON6/view?usp=drive_link');
 new Work('A Round of Praise','Marshall, Jane M.',undefined,'SAB','Praise/Thanksgiving','https://drive.google.com/file/d/1PXv8zeT46hOY2SG7FC76fQrglSw_-ycC/view?usp=drive_link');
-new Work(`Ain't That-A Rockin'`,'Gibbs, Stacey V.',undefined,'SSAATBB','General','https://drive.google.com/file/d/1Hrpr3eNimwiA1Y6A1sYIcovM3B0zxI8c/view?usp=drive_link')
+new Work(`Ain't That-A Rockin'`,'Traditional','Gibbs, Stacey V.','SSAATBB','General','https://drive.google.com/file/d/1Hrpr3eNimwiA1Y6A1sYIcovM3B0zxI8c/view?usp=drive_link')
 new Work('Alfred Burt Carols Set II','Burt, Alfred',undefined,'SSATBB','Christmas','https://drive.google.com/file/d/19S9cVQOQfFBcmgHTQXC1bPayCjeR2Me4/view?usp=drive_link');
 new Work('All on a Starry Night','Graham, Joseph',undefined,'SAATTBB','Christmas','https://drive.google.com/file/d/1I1Bcrv3N-xz8Aoyo3ZrXep2GKGYscYT_/view?usp=drive_link');
 new Work('Alleluia','Fajardo, Javier',undefined,'SSAATTBB','Praise/Thanksgiving','https://drive.google.com/file/d/1LHjpBsRXpsIHhYetd3_QPUXIdabw_STs/view?usp=drive_link')
@@ -104,7 +115,13 @@ new Work('Unclouded Day','Alwood, Rev. J.K.','Kirchner, Shawn','SSAATTBB','After
 new Work('What Comfort Can Our Worship Bring','Henson, Blake',undefined,'SSATB','Prayer','https://drive.google.com/file/d/1jyAXA2-BMBWbVO0dZPnzPcZ37XPmpWS1/view?usp=drive_link');
 new Work('Ubi Caritas','Durufle, Maurice',undefined,'SATBB','Gathering/General','https://drive.google.com/file/d/1xlmr7eTRg8DP20QT2X7mgf0gJBfwXS66/view?usp=drive_link');
 new Work('Ubi Caritas','Gjeilo, Ola',undefined,'SSATB','Gathering/General','https://drive.google.com/file/d/1sjSfT0cjjkzWX2FzE30A9HOBpaq6H6Vt/view?usp=drive_link');
-
+new Work('Gaudete','Anonymous',undefined,'SATB','Joy/Christmas','https://drive.google.com/file/d/1DGPgNOhVXe1CUzLAsOP5WVmcSu1_uNKe/view?usp=drive_link');
+new Work('Do You Know What It Means to Miss New Orleans','DeLange, Eddie; Alter, Louis','Edgerton, Robert','SSSATB','Louisiana','https://drive.google.com/file/d/1Y190YLSgpVqKklkZufajw6FJBaTLw-cT/view?usp=drive_link');
+new Work('Lead, Kindly Light','Sullivan, Michael',undefined,'SATB','Mourning/Hope','https://drive.google.com/file/d/1ZltdDjEIckvRIIZltQTzpVgONPo55LxT/view?usp=drive_link');
+new Work('Wannabe: As an English Madrigal','Halliwell, Geri; Bunton, Emma; Brown, Melanie; Adams, Victoria; Chrisholm, Melanie; Rowebottom, Matthew; Stannard, Richard','Howe, Nathan','SATB','Pop','https://drive.google.com/file/d/1CLZs-l0-8-Og_D7mcrG0zudx6DADaGaB/view?usp=drive_link');
+new Work('Three Kings From Persian Lands Afar','Cornelius, Peter','Atkins, Sir Ivor','SATBB','Epiphany','https://drive.google.com/file/d/1LFKZiIiH05FkvAXLq_E3PwNIzRM9A9cT/view?usp=drive_link');
+new Work('Hush','Traditional Spiritual','Gibbs, Stacey V.','SSATB','Heaven','https://drive.google.com/file/d/1FeH4XHwSmdi0tUQPAIPyxibPDmCvTz_b/view?usp=drive_link');
+new Work('Ave Regina Caelorum','Leonarda, Isabella',undefined,'SATB','Marian','https://drive.google.com/file/d/1a53IsIGxP5VxPyxzQNjZGVN4q5MeLC4b/view?usp=drive_link');
 
 //
 
@@ -155,7 +172,10 @@ const tableFormat = (array = lib,parent) => {
                             data.innerHTML = `${value['First']} ${value['Last']}`;
                         }
                     }
-                    data.setAttribute('class','searchable');
+                    data.addEventListener('mousedown',(event) => {
+                        console.log(event.target.textContent);
+                        search(event.target.textContent);
+                    });
                     trow.appendChild(data);
                 }
                 else if (key == 'link') {
@@ -173,7 +193,10 @@ const tableFormat = (array = lib,parent) => {
                     let data = document.createElement('td');
                     data.innerHTML = value;
                     trow.appendChild(data);
-                    data.setAttribute('class','searchable');
+                    data.addEventListener('mousedown',(event) => {
+                        console.log(event.target.textContent);
+                        search(event.target.textContent);
+                    })
                 }
             }
             table.appendChild(trow);
@@ -229,17 +252,7 @@ document.addEventListener('DOMContentLoaded',() => {
     searchBar.addEventListener('keydown',() => {
        search(searchBar.value);
     })
-    /**
-     * Click Search.
-     */
-    document.querySelectorAll('.searchable').forEach(item => {
-        item.addEventListener('mousedown',(event) => {
-            console.log(event.target.textContent);
-            search(event.target.textContent);
-        })
-    });
     document.getElementById('clear').addEventListener('mousedown',() => {
-        searchBar.value = '';
-        tableFormat(lib,'display');
+        document.location.reload();
     })
 })
