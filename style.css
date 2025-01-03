@@ -59,4 +59,5 @@ tr:hover {
 .tooltip:hover .tooltipText {
     visibility:visible;
     position:absolute;
+    z-index:1;
 }
