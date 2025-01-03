@@ -153,9 +153,9 @@ const tableFormat = (array = lib,parent) => {
             let trow = document.createElement('tr');
             for (let [key,value] of Object.entries(entry)) {
                 let data = document.createElement('td');
-                    let hover = document.createElement('div');
-                    hover.setAttribute('class','tooltipText');
-                    data.setAttribute('class','tooltip');
+                let hover = document.createElement('div');
+                hover.setAttribute('class','tooltipText');
+                data.setAttribute('class','tooltip');
                 if (key == 'composer' || key == 'arranger') {
                     if (Array.isArray(value)) {
                         let conc = '';
