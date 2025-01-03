@@ -174,7 +174,7 @@ const tableFormat = (array = lib,parent) => {
                     }
                     let context = document.getElementById('description');
                     data.addEventListener('mouseover',(event) => {
-                        context.innerHTML = `Search for '${event.target.textContent}'`;
+                        context.innerHTML = `Search library for '${event.target.textContent}'`;
                     });
                     data.addEventListener('mouseout',(event) => {
                         context.innerHTML = ``;
