@@ -185,7 +185,7 @@ const tableFormat = (array = lib,parent) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
                     });
-                    trow.appendChild(data);
+                    trow.appendChild(cell);
                 }
                 else if (key == 'link') {
                     let data = document.createElement('td');
