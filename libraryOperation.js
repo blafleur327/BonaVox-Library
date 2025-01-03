@@ -4,8 +4,8 @@ let lib = [];
 /**
  * Create a new instance of the Work class, added automatically to the library array.
  * @param {string} title e.g. 'Ave Maria'
- * @param {string} composer Last, First; Last, First e.g. 'Doe, Jane L.; Smith, John F'
- * @param {string} arranger Last, First e.g. 'Doe, Jane L.'
+ * @param {string} composer Last, First; Last, First e.g. 'LaFleur, Brandon K.; Core, MaryKate F'
+ * @param {string} arranger Last, First e.g. 'LaFleur, Brandon K.'
  * @param {string} voicing e.g. SSAATTBB
  * @param {string} usage e.g. Mass Setting
  * @param {string} link '{link in BonaVox Google Drive}'
@@ -152,8 +152,8 @@ const tableFormat = (array = lib,parent) => {
         if (confirm) {
             let trow = document.createElement('tr');
             for (let [key,value] of Object.entries(entry)) {
-                let data = document.createElement('td');
                 if (key == 'composer' || key == 'arranger') {
+                    let data = document.createElement('td');
                     if (Array.isArray(value)) {
                         let conc = '';
                         value.forEach(element => {
@@ -172,10 +172,11 @@ const tableFormat = (array = lib,parent) => {
                             data.innerHTML = `${value['First']} ${value['Last']}`;
                         }
                     }
-                    let context = document.getElementById('description');
                     data.addEventListener('mousedown',(event) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
+                        document.getElementById('context').innerHTML = '';
+                        document.getElementById('context').classList.remove('show');
                     });
                     trow.appendChild(data);
                 }
@@ -197,9 +198,19 @@ const tableFormat = (array = lib,parent) => {
                     data.addEventListener('mousedown',(event) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
+                        document.getElementById('context').innerHTML = '';
+                        document.getElementById('context').classList.remove('show');
                     })
                 }
             }
+            trow.addEventListener('mouseover',(event) => {
+                event.target.textContent == 'PDF'? null: document.getElementById('context').textContent = `Click to search for '${event.target.textContent}'`;
+                event.target.textContent == 'PDF'? null: document.getElementById('context').setAttribute('class','show');
+            });
+            trow.addEventListener('mouseout',() => {
+                document.getElementById('context').textContent = ``;
+                document.getElementById('context').classList.remove('show');
+            })
             table.appendChild(trow);
         }
         else {
@@ -252,12 +263,6 @@ document.addEventListener('DOMContentLoaded',() => {
     let searchBar = document.getElementById('search')
     searchBar.addEventListener('keydown',() => {
        search(searchBar.value);
-    })
-    document.querySelector('table').addEventListener('mouseover',(event) => {
-        document.getElementById('description').innerHTML = `Search for '${event.target.textContent}'`;
-    })
-    document.querySelector('table').addEventListener('mouseout',(event) => {
-        document.getElementById('description').innerHTML = ``;
     })
     document.getElementById('clear').addEventListener('mousedown',() => {
         document.location.reload();

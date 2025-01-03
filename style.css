@@ -34,6 +34,7 @@ td {
     border-color: gray;
     border-width: 1px;
     border-style: solid;
+    max-height:fit-content;
 }
 
 td:hover {
@@ -47,7 +48,33 @@ tr:hover {
 
 #clear:hover {
     font-weight: bolder;
+    transform-origin: 1.2%;
     cursor:pointer;
     background-color:rgb(198, 198, 198);
 }
 
+.show {
+    border-color:grey;
+    border-style:dashed;
+    border-width:1px;
+}
+
+.group {
+    display:flex;
+    flex-direction:row;
+}
+
+.group > p {
+    padding-right:4%;
+}
+
+#context {
+    font-style:italic;
+    color:grey;
+}
+
+.inputs {
+    display:flex;
+    flex-direction:row;
+    padding-bottom:1%;
+}
