@@ -152,11 +152,11 @@ const tableFormat = (array = lib,parent) => {
         if (confirm) {
             let trow = document.createElement('tr');
             for (let [key,value] of Object.entries(entry)) {
-                if (key == 'composer' || key == 'arranger') {
-                    let data = document.createElement('td');
+                let data = document.createElement('td');
                     let hover = document.createElement('div');
                     hover.setAttribute('class','tooltipText');
                     data.setAttribute('class','tooltip');
+                if (key == 'composer' || key == 'arranger') {
                     if (Array.isArray(value)) {
                         let conc = '';
                         value.forEach(element => {
