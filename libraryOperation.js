@@ -173,12 +173,6 @@ const tableFormat = (array = lib,parent) => {
                         }
                     }
                     let context = document.getElementById('description');
-                    data.addEventListener('mouseover',(event) => {
-                        context.innerHTML = `Search library for '${event.target.textContent}'`;
-                    });
-                    data.addEventListener('mouseout',(event) => {
-                        context.innerHTML = ``;
-                    });
                     data.addEventListener('mousedown',(event) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
@@ -258,6 +252,9 @@ document.addEventListener('DOMContentLoaded',() => {
     let searchBar = document.getElementById('search')
     searchBar.addEventListener('keydown',() => {
        search(searchBar.value);
+    })
+    document.querySelector('table').addEventListener('mouseover',(event) => {
+        document.getElementById('description').innerHTML = `event.target.textContent`;
     })
     document.getElementById('clear').addEventListener('mousedown',() => {
         document.location.reload();
