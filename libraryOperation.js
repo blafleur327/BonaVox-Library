@@ -153,7 +153,7 @@ const tableFormat = (array = lib,parent) => {
             let trow = document.createElement('tr');
             for (let [key,value] of Object.entries(entry)) {
                 let cell = document.createElement('td');
-                let data = document.createElement('td');
+                let data = document.createElement('p');
                 let cont = document.createElement('div');
                 let hover = document.createElement('p');
                 cont.appendChild(hover);
