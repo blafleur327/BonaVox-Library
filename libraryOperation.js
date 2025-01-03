@@ -254,7 +254,10 @@ document.addEventListener('DOMContentLoaded',() => {
        search(searchBar.value);
     })
     document.querySelector('table').addEventListener('mouseover',(event) => {
-        document.getElementById('description').innerHTML = `${event.target.textContent}`;
+        document.getElementById('description').innerHTML = `Search for '${event.target.textContent}'`;
+    })
+    document.querySelector('table').addEventListener('mouseout',(event) => {
+        document.getElementById('description').innerHTML = ``;
     })
     document.getElementById('clear').addEventListener('mousedown',() => {
         document.location.reload();
