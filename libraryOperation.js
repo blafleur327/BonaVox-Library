@@ -152,13 +152,7 @@ const tableFormat = (array = lib,parent) => {
         if (confirm) {
             let trow = document.createElement('tr');
             for (let [key,value] of Object.entries(entry)) {
-                let cell = document.createElement('td');
-                let data = document.createElement('p');
-                let cont = document.createElement('div');
-                let hover = document.createElement('p');
-                cont.appendChild(hover);
-                cell.appendChild(cont);
-                cell.appendChild(data);
+                let data = document.createElement('td');
                 hover.setAttribute('class','tooltipText');
                 cont.setAttribute('class','tooltip');
                 if (key == 'composer' || key == 'arranger') {
@@ -180,12 +174,18 @@ const tableFormat = (array = lib,parent) => {
                             data.innerHTML = `${value['First']} ${value['Last']}`;
                         }
                     }
-                    hover.innerHTML = `Search for ${data.innerHTML}`;
+                    let context = document.getElementById('description');
+                    data.addEventListener('mouseover',(event) => {
+                        context.innerHTML = `Search for '${event.target.textContent}'`;
+                    });
+                    data.addEventListener('mouseout',(event) => {
+                        context.innerHTML = ``;
+                    });
                     data.addEventListener('mousedown',(event) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
                     });
-                    trow.appendChild(cell);
+                    trow.appendChild(data);
                 }
                 else if (key == 'link') {
                     let data = document.createElement('td');
