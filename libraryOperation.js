@@ -4,8 +4,8 @@ let lib = [];
 /**
  * Create a new instance of the Work class, added automatically to the library array.
  * @param {string} title e.g. 'Ave Maria'
- * @param {string} composer Last, First; Last, First e.g. 'LaFleur, Brandon K.; Core, MaryKate F'
- * @param {string} arranger Last, First e.g. 'LaFleur, Brandon K.'
+ * @param {string} composer Last, First; Last, First e.g. 'Doe, Jane L.; Smith, John F'
+ * @param {string} arranger Last, First e.g. 'Doe, Jane L.'
  * @param {string} voicing e.g. SSAATTBB
  * @param {string} usage e.g. Mass Setting
  * @param {string} link '{link in BonaVox Google Drive}'
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded',() => {
        search(searchBar.value);
     })
     document.querySelector('table').addEventListener('mouseover',(event) => {
-        document.getElementById('description').innerHTML = `event.target.textContent`;
+        document.getElementById('description').innerHTML = `${event.target.textContent}`;
     })
     document.getElementById('clear').addEventListener('mousedown',() => {
         document.location.reload();
