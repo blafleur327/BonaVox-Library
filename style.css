@@ -47,7 +47,15 @@ tr:hover {
 
 #clear:hover {
     font-weight: bolder;
-    transform-origin: 1.2%;
     cursor:pointer;
     background-color:rgb(198, 198, 198);
+}
+
+.tooltipText {
+    display:none;
+    position:relative;
+}
+
+.tooltip:hover .tooltipText {
+    display:block;
 }
