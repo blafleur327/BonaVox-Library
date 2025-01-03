@@ -52,10 +52,10 @@ tr:hover {
 }
 
 .tooltipText {
-    display:none;
+    visibility:hidden;
     position:relative;
 }
 
 .tooltip:hover .tooltipText {
-    display:block;
+    visibility:visible;
 }
