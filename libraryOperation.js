@@ -175,6 +175,7 @@ const tableFormat = (array = lib,parent) => {
                             data.innerHTML = `${value['First']} ${value['Last']}`;
                         }
                     }
+                    hover.innerHTML = `Search for ${data.innerHTML}`;
                     data.addEventListener('mousedown',(event) => {
                         console.log(event.target.textContent);
                         search(event.target.textContent);
