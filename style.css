@@ -51,14 +51,3 @@ tr:hover {
     background-color:rgb(198, 198, 198);
 }
 
-.tooltip .tooltipText {
-    visibility:hidden;
-    position:relative;
-    background-color:black;
-}
-
-.tooltip:hover .tooltipText {
-    visibility:visible;
-    position:absolute;
-    z-index:1;
-}
