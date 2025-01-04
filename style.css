@@ -1,3 +1,8 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:#d6c8f356
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -24,10 +29,11 @@ table {
 th {
     position:sticky;
     top:0;
-    background-color:rgb(159, 142, 255);
+    background-color:#470086;
     border-color: grey;
     border-style: solid;
     border-width: 1px;
+    color:white;
 }
 
 td {
@@ -35,6 +41,7 @@ td {
     border-width: 1px;
     border-style: solid;
     max-height:fit-content;
+    background-color:#c1a9f443
 }
 
 td:hover {
@@ -77,4 +84,41 @@ tr:hover {
     display:flex;
     flex-direction:row;
     padding-bottom:1%;
+}
+
+.inputs > button, input {
+    max-height: min-content;
+}
+
+
+#background {
+    max-width:min-content;
+    max-height: min-content;
+    padding: 1%;
+    background-color:#c1a9f4;
+    border-radius:100%;
+    text-align:center;
+    border-color:grey;
+    border-style:solid;
+    border-width:1px;
+}
+
+#background > a > img {
+    max-width: 85%;
+    max-height:85%;
+}
+
+#subLogo {
+    font-style:italic;
+}
+
+#bigBoi > {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    text-align:center;
+    padding:1%;
 }
