@@ -122,7 +122,16 @@ new Work('Wannabe: As an English Madrigal','Halliwell, Geri; Bunton, Emma; Brown
 new Work('Three Kings From Persian Lands Afar','Cornelius, Peter','Atkins, Sir Ivor','SATBB','Epiphany','https://drive.google.com/file/d/1LFKZiIiH05FkvAXLq_E3PwNIzRM9A9cT/view?usp=drive_link');
 new Work('Hush','Traditional Spiritual','Gibbs, Stacey V.','SSATB','Heaven','https://drive.google.com/file/d/1FeH4XHwSmdi0tUQPAIPyxibPDmCvTz_b/view?usp=drive_link');
 new Work('Ave Regina Caelorum','Leonarda, Isabella',undefined,'SATB','Marian','https://drive.google.com/file/d/1a53IsIGxP5VxPyxzQNjZGVN4q5MeLC4b/view?usp=drive_link');
-
+new Work('Witness','Traditional Spiritual','Dandridge, Damon','SSAATTBB','Spiritual','https://drive.google.com/file/d/1iLVBg98wQGdzy--0UlrB7UtMKM_urfrc/view?usp=drive_link');
+new Work('Words','Edenroth, Anders',undefined,'SSAATTBBB','Pop','https://drive.google.com/file/d/1vBgNJWRew9OchwppdSQCeiLkpcJB-p80/view?usp=drive_link');
+new Work('The Dreams of the Dreamer','Walters, David',undefined,'SSAATBB','Contemporary','https://drive.google.com/file/d/1DAFA6p_YGirRGucvx_Naqdonq1qaleg0/view?usp=drive_link');
+new Work('Still With Thee','Hagenberg, Elaine',undefined,'SSAATTBB','Comfort','https://drive.google.com/file/d/16TKgKKQgqO7nnrU9xIucEbQ_HkCWPuR2/view?usp=drive_link');
+new Work('Adoramus Te Christe','Palestrina,G.P.',undefined,'SATB','Adoration','https://drive.google.com/file/d/1Injzw7sM2Sgx6JxrzEutd-a9hKzUKIFj/view?usp=drive_link');
+new Work('O Salutaris Hostia','Levente, H.',undefined,'SATB','Adoration','https://drive.google.com/file/d/14g004C3beARcn0B6xhQxwL-1CCQHEqEt/view?usp=drive_link');
+new Work('O Taste and See','Vaughan-Williams, Ralph',undefined,'SSATB','Communion','https://drive.google.com/file/d/1T69qBKoD44CRoAbrE0SSbqd7B2qT4EO1/view?usp=drive_link');
+new Work('The Road to Calvary','Bach, J.S.','Cozens, John','SATB','Lent/Good Friday','https://drive.google.com/file/d/1JLN2dC4IDNNyUyxicD5_2q30DUhJKK7F/view?usp=drive_link');
+new Work('Amazing Grace','Traditional',undefined,'SATB','General','https://drive.google.com/file/d/1W_SD7upUkP8ZFshONheCGoW9VW7OXOiv/view?usp=drive_link');
+new Work('In Paradisum','Anonymous','Reddoch, Grant','SSAATTBB','Funeral/Heaven','https://drive.google.com/file/d/1q_XjPyyv8a2OxGveFM27r_KC0kfuTdXT/view?usp=drive_link');
 //
 
 //Sort into Alphabetical Order by Title
