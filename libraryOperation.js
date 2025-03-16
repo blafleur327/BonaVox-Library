@@ -132,6 +132,19 @@ new Work('O Taste and See','Vaughan-Williams, Ralph',undefined,'SSATB','Communio
 new Work('The Road to Calvary','Bach, J.S.','Cozens, John','SATB','Lent/Good Friday','https://drive.google.com/file/d/1JLN2dC4IDNNyUyxicD5_2q30DUhJKK7F/view?usp=drive_link');
 new Work('Amazing Grace','Traditional',undefined,'SATB','General','https://drive.google.com/file/d/1W_SD7upUkP8ZFshONheCGoW9VW7OXOiv/view?usp=drive_link');
 new Work('In Paradisum','Anonymous','Reddoch, Grant','SSAATTBB','Funeral/Heaven','https://drive.google.com/file/d/1q_XjPyyv8a2OxGveFM27r_KC0kfuTdXT/view?usp=drive_link');
+new Work('Lux Aeterna','Lauridsen, Morten',undefined,'SSAATTBB','Funeral/Light','https://drive.google.com/file/d/1a2Tg1YVsVjgQfK1gR64zuBXRe_ij2_Qo/view?usp=drive_link');
+new Work('MLK','Chilcott, Bob',undefined,'SATTBB','Peace','https://drive.google.com/file/d/1w0-rN35SRtpr_8EIPkHApXPxXRNGxr31/view?usp=drive_link');
+new Work('O Bone Jesu','Palestrina, G.P.',undefined,'SATB','Forgiveness','https://drive.google.com/file/d/1VNaOUZE8iG0zRsFTdAfiXBgcf3d2bEkB/view?usp=drive_link');
+new Work('O Crux Ave','Dubra, Rihard',undefined,'SATB','Veneration of Cross','https://drive.google.com/file/d/12fU4nWsfzLva8gHNdQ8W4slot9w5IVGp/view?usp=drive_link');
+new Work('O Sternenfall','Walters, David',undefined,'SSSAATTBB','Stars','https://drive.google.com/file/d/1w_8NuKQaELPbx9KN5f-TCjJgbx0fL9a_/view?usp=drive_link');
+new Work('Prayer','Clausen, Rene',undefined,'SSAATTBB','Humility/Service','https://drive.google.com/file/d/1lBOoBROYKMFnOpwYpInqLsasnAZSWXnS/view?usp=drive_link');
+new Work('God Our Father, Lord of Heaven','Beobide, Jose',undefined,'SSA','Adoration','https://drive.google.com/file/d/11TjBHjz3NveDWCXdUaLGvLeQCBEGZkcU/view?usp=drive_link');
+new Work('Precious Lord','Dorsey, Thomas','Sevier, Arnold','SSAATTBB','Comfort','https://drive.google.com/file/d/1M8utAWnRFnsFAkUoBqi2-x4cYda0BQgU/view?usp=drive_link');
+new Work('Sanctus: London','Gjeilo, Ola',undefined,'SSAAATTBBB','Praise/Mass','https://drive.google.com/file/d/1shVAMKL9YnoK2w4EZmkPixlbnhNKSurh/view?usp=drive_link');
+new Work('Jubilate Deo','Halmos, Laszlo',undefined,'SATB','Praise','https://drive.google.com/file/d/1BOupegaSaoJLRs_6uBdyOy5GMG6UZWb2/view?usp=drive_link')
+new Work('Lay Me Low','Shaker Tune','Siegfried, Kevin','SSAATTBB','Death','https://drive.google.com/file/d/1xOPBbus-sZ-6TaLHo4jy1yb5NCm4Tni2/view?usp=sharing');
+new Work('Lead Kindly Light','Sullivan, Michael',undefined,'SATB','Guidance','https://drive.google.com/file/d/1ZltdDjEIckvRIIZltQTzpVgONPo55LxT/view?usp=drive_link');
+
 //
 
 //Sort into Alphabetical Order by Title
@@ -226,6 +239,7 @@ const tableFormat = (array = lib,parent) => {
             console.error('Entry is not an instance of Work class!');
         }
     })
+    document.getElementById('tot').innerHTML = `Currently Showing: ${currRow}`;
     let par = document.getElementById(parent);
     par.appendChild(table);
 }
@@ -264,14 +278,18 @@ const search = (text) => {
         }
     })
     tableFormat(res,'display');
+    document.getElementById('tot').innerHTML = `Currently Showing: ${res.length}`;
 }
 
 document.addEventListener('DOMContentLoaded',() => {
     console.log('DOM Loaded!');
     tableFormat(lib,'display');
     let searchBar = document.getElementById('search')
-    searchBar.addEventListener('keydown',() => {
+    searchBar.addEventListener('change',() => { //This is behind. I'm not sure how to get it to respond correctly
        search(searchBar.value);
+    })
+    document.getElementById('clickSub').addEventListener('mousedown',() => {
+        search(searchBar.value);
     })
     document.getElementById('clear').addEventListener('mousedown',() => {
         document.location.reload();
