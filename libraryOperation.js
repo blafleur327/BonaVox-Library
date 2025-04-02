@@ -67,7 +67,7 @@ function Work(title,composer,arranger,voicing,usage,link) {
         })
         return isDuplicate;
     }
-    duplicate() == false? lib.push(this) : console.error('ITEM IS DUPLICATE!');
+    duplicate() === false? lib.push(this) : console.error('ITEM IS DUPLICATE!');
 }
 
 //Add works here.
